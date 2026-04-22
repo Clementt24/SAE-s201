@@ -1,45 +1,22 @@
 public class Joueur {
 
-    private static String NOM_JOUEUR = "...";
-    private static final
-    private static int SCORE = "0";
+    private String nom;
+    private int score;
 
-    public Player(String nomC)
-    {
-        if (nomC.isNomValide())
-        {
-            this.NOM_JOUEUR = nomC;
-        }
-        else
-        {
-            System.out.println("Imoossible le nom du joueur doit contenir moins de 10 caractères, le nom: " + nomC + " ne respecte pas cette contrainte.")
-        }
+    public Joueur(String nom) {
+        this.nom = nom;
+        this.score = 0; // Le score commence toujours à 0
     }
 
-    //Getters
-    public String getName()
-    {
-        return NOM_JOUEUR;
+    public String getNom() {
+        return this.nom;
     }
 
-    public int getScore()
-    {
-        return SCORE;
+    public int getScore() {
+        return this.score;
     }
 
-    //Setters
-    public void addPoints(int ajouts)
-    {
-        this.SCORE += ajouts;
+    public void addPoints(int points) {
+        this.score += points;
     }
-
-    //Verificateur
-    private boolean isNomValide(String nomV)
-    {
-        if (nomV > 10)
-        {
-            return false;
-        }
-    }
-
 }

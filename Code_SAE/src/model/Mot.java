@@ -1,46 +1,38 @@
 public class Mot {
 
-    private String mot;
+    private String valeur;
     private static final int TAILLE_MAX = 5;
 
-    //Constructeurs
-    public Mot(String motC)
-    {
-        if motIsValid(String motC)
-        {
-            this.mot = motC;
-            System.out.println("Le mot est appliqué avec succes)");
-        }
-        else
-        {
-            System.out.println("Impossible, le mot n'est pas correct, pour rappel il doit avoir 5 lettres uniques.");
-        }
+    public Mot(String valeur) {
+        this.valeur = valeur;
     }
 
-    //Getters
-    public String getMot()
-    {
-        return this.mot;
+    public String getMot() {
+        return this.valeur;
     }
 
-    //Conditions
-    private boolean motIsValid(String motV)
-    {
-        if (motV.lenghts > TAILLE_MAX)
-        {
+    // Méthode statique pour valider un texte avant d'en faire un objet Mot
+    public static boolean isValid(String motV) {
+        if (motV == null || motV.length() != TAILLE_MAX) {
             return false;
         }
 
-        for (int i; i < TAILLE_MAX; i++)
-        {
+        for (int i = 0; i < TAILLE_MAX; i++) {
             char c = motV.charAt(i);
 
-            if (!Character.isLetter(c))
-            {
+            // Vérifie si le caractère est bien une lettre
+            if (!Character.isLetter(c)) {
                 return false;
+            }
+
+            // Vérifie qu'il n'y a pas de lettres répétées
+            for (int j = i + 1; j < TAILLE_MAX; j++) {
+                if (c == motV.charAt(j)) {
+                    return false;
+                }
             }
         }
 
-        return true;
+        return true; // Si on arrive ici, le mot respecte toutes les règles
     }
 }
