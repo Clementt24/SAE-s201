@@ -28,7 +28,7 @@ public class TestGlobal {
         System.out.println();
     }
 
-    // --- TEST 2 : Le Joueur ---
+    // --- TEST 2 : Le Joueur --
     private static void testerJoueur() {
         System.out.println("--- TEST 2 : Gestion du Joueur ---");
         Joueur j1 = new Joueur("Alice");
