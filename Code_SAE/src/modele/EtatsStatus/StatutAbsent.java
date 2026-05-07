@@ -6,7 +6,7 @@ public class StatutAbsent extends Statut {
 
     private static final String STATUT_ABSENT = "Absent";
 
-    StatutAbsent ()
+    StatutAbsent()
     {
         super();
         this.texte = STATUT_ABSENT;
