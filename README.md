@@ -1,4 +1,3 @@
-SAE_FindMyWord_v_1.2.md 2026-03-29
 
 ## Le jeu Find My Word 1. Objectifs dʼune SAÉ (Situation dʼApprentissage et dʼÉvaluation)
 
@@ -1128,7 +1127,5 @@ SAE_FindMyWord_v_1.2.md 2026-03-29
   Partie perdue.
   Mot secret : ligne
 
-```
 
-16 / 16
 
