@@ -9,7 +9,7 @@ public class StatutAbsent extends Statut {
     StatutAbsent()
     {
         super();
-        this.texte = STATUT_ABSENT;
+        super.setStatut(STATUT_ABSENT);
     }
 
     public String toSTring()
