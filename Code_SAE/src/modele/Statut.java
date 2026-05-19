@@ -1,27 +1,40 @@
 package modele;
 
-public class Statut {
+public abstract class Statut {
 
-    private boolean statut;
     private String texte;
+    private boolean gagnant;
 
-    //constructeurs
-    Statut()
-    {
-        this.statut = true;
-        this.texte = "Aucun statut";
+    // Constructeur
+    public Statut(String texte, boolean gagnant) {
+        this.texte = texte;
+        this.gagnant = gagnant;
     }
 
-    Statut(boolean newStatut, String nexText)
-    {
-        this.statut = newStatut;
-        this.texte = nexText;
+    // Getters
+    public String getTexte() {
+        return this.texte;
     }
 
-    //setters
-    public void setStatut(boolean newStatut)
-    {
-        this.statut = newStatut;
+    public boolean isGagnant() {
+        return this.gagnant;
     }
 
+    // Ton equals avec obj == null
+    public boolean equals(Object c) {
+        if (c == null) {
+            return false;
+        }
+        if (this.getClass() != c.getClass()) {
+            return false;
+        }
+
+        Statut autre = (Statut) c;
+        return this.texte.equals(autre.getTexte())
+                && this.gagnant == autre.isGagnant();
+    }
+
+    public String toString() {
+        return "Informations du Status (Texte : " + this.texte + ", Condition de victoire : " + this.gagnant + ")";
+    }
 }
