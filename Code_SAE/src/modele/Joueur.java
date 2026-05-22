@@ -2,18 +2,39 @@ package modele;
 
 public class Joueur {
 
-    public static int SCORE = 0;
-    public static String NOM_JOUEUR = "Invité"; //Le nom du joueur par default sera invité.
+    private String pseudo;
+    private int score;
 
-    private void setNomJoueur(String j)
-    {
-        this.NOM_JOUEUR = j;
-        //TODO implementer verification pour modifier le nom du joueur
+    public Joueur(String pseudo) {
+        this.pseudo = pseudo;
+        this.score = 0;
     }
 
-    private void setScore(int newscore)
-    {
-        this.SCORE = newscore;
+    public String getPseudo() {
+        return this.pseudo;
     }
 
+    public int getScore() {
+        return this.score;
+    }
+
+    public void ajouterPoints(int points) {
+        this.score += points;
+    }
+
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Joueur autre = (Joueur) obj;
+        return this.pseudo.equals(autre.getPseudo());
+    }
+
+    public String toString() {
+        return "Joueur : " + this.pseudo + " | Score total : " + this.score + " points";
+    }
 }

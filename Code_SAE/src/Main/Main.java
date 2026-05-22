@@ -1,5 +1,6 @@
 package Main;
 
+import donnees.RepertoireMots;
 import modele.*;
 import modele.EtatsStatus.*;
 
@@ -53,6 +54,21 @@ public class Main {
         Mot essai3 = new Mot("PLAGE");
         Resultat r3 = maPartie.analyserTentative(essai3);
         System.out.println(r3.toString());
+
+        Mot motSecret = null;
+
+        try {
+            // Chargement du dictionnaire JSON et sélection d'un mot aléatoire
+            RepertoireMots dictionnaire = new RepertoireMots("/home/clement/IdeaProjects/SAE-s201/Code_SAE/src/data/mots.json");
+            //todo remplacer le chemin en dur pour que le prof puisse ouvrir
+
+            motSecret = dictionnaire.getMotAleatoire();
+            System.out.println(motSecret);
+
+        } catch (Exception e) {
+            System.out.println("IMpossible, erreur lors du chargement du fichier ou du mot : " + e.getMessage());
+            return; // On arrête immédiatement le programme s'il y a un problème de fichier
+        }
 
         System.out.println("");
         System.out.println("------------------ Fin du main ------------------");
