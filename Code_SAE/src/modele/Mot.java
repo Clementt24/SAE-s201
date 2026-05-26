@@ -9,20 +9,9 @@ public class Mot {
     public static final int TAILLE_MAX = 5;
 
     //COnstructeur
-    public Mot(String m) {
-
-        try
-        {
-            this.setMot(m);
-        }
-
-        catch (Exception e)
-        {
-            System.out.println("Impossible le mot saisis est incorect. " + "\n" +
-                               "Il y'a l'erreur suivante : " + e         + "\n" +
-                               " "                                       + "\n" +
-                               "Veuillez ressaisir votre mot.."          + "\n");
-        }
+    public Mot(String m) throws LongueurMotException, FormatMotException
+    {
+        this.setMot(m);
     }
 
     // Setter
