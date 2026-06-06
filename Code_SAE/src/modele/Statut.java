@@ -20,7 +20,7 @@ public abstract class Statut {
         return this.gagnant;
     }
 
-    // Ton equals avec obj == null
+    // Méthodes
     public boolean equals(Object c) {
         if (c == null) {
             return false;

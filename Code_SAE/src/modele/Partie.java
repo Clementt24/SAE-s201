@@ -68,7 +68,7 @@ public class Partie {
             listeDefinitive.add(statutsProvisoires[i]);
         }
 
-        Resultat resultatDuTour = new Resultat(listeDefinitive);
+        Resultat resultatDuTour = new Resultat(tentative, listeDefinitive);
         this.historique.add(resultatDuTour);
 
         if (resultatDuTour.isVictoire()) {

@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 public class Resultat {
 
+    private Mot tentative;
     private ArrayList<Statut> listeStatuts;
 
-    // Constructeur
-    public Resultat(ArrayList<Statut> statuts) {
+    public Resultat(Mot tentative, ArrayList<Statut> statuts) {
+        this.tentative = tentative;
         this.listeStatuts = statuts;
     }
 
@@ -17,24 +18,34 @@ public class Resultat {
     }
 
     public boolean isVictoire() {
-
-        // On parcourt la liste des statuts
         for (int i = 0; i < this.listeStatuts.size(); i++) {
             Statut statutActuel = this.listeStatuts.get(i);
 
-            if (statutActuel.isGagnant() == false) {            // Si un seul statut n'est pas gagnant, le mot n'est pas le bon !
+            if (statutActuel.isGagnant() == false) {
                 return false;
             }
         }
-
-        return true; // Si la boucle se termine, c'est que le mot est le meme donc gagné
+        return true;
     }
-    
+
+    @Override
     public String toString() {
-        String affichage = "Résultat de la tentative : \n";
-        for (int i = 0; i < this.listeStatuts.size(); i++) {
-            affichage += "- Lettre " + (i + 1) + " : " + this.listeStatuts.get(i).getTexte() + "\n";
+        StringBuilder affichage = new StringBuilder();
+        String texteMot = this.tentative.getMot();
+
+        // Affichage des lettres
+        for (int i = 0; i < texteMot.length(); i++) {
+            affichage.append("[ ").append(texteMot.charAt(i)).append(" ]");
         }
-        return affichage;
+
+        // La flèche de séparation
+        affichage.append(" -> ");
+
+        for (int i = 0; i < this.listeStatuts.size(); i++) {
+            String texteStatut = this.listeStatuts.get(i).getTexte().toUpperCase();
+            affichage.append(String.format("%-9s", texteStatut));
+        }
+
+        return affichage.toString();
     }
 }

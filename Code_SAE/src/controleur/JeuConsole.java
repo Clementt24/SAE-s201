@@ -13,9 +13,9 @@ public class JeuConsole {
     public void jouer() {
         Scanner clavier = new Scanner(System.in);
 
-        System.out.println("=========================================");
-        System.out.println("          BIENVENUE DANS WORDLE          ");
-        System.out.println("=========================================\n");
+        System.out.println("----------------------------------------");
+        System.out.println("          FIND MY WORD         ");
+        System.out.println("----------------------------------------");
 
         System.out.print("Entrez votre nom : ");
         String pseudo = clavier.nextLine();
