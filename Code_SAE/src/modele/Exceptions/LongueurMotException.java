@@ -18,6 +18,7 @@ public class LongueurMotException extends Exception {
         return this.longeur;
     }
 
+    //méthodes de base
     public String toString()
     {
         return "La longeur du mot (" + this.longeur + " caracteres ) n'est pas conforme, la longeur minimale / maximale du mot est : "

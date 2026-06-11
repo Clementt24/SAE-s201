@@ -9,6 +9,7 @@ public class StatutOk extends Statut {
         super("OK", true);
     }
 
+    //méthodes de base
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;

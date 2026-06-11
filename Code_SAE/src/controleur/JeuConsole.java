@@ -21,27 +21,46 @@ public class JeuConsole {
         String pseudo = clavier.nextLine();
         Joueur joueur = new Joueur(pseudo);
 
-        try {
-            RepertoireMots dictionnaire = new RepertoireMots("/home/clement/IdeaProjects/SAE-s201/Code_SAE/src/data/mots.json");
-            //todo changer le chemin pour pas le mettre en dur
-            Mot motSecret = dictionnaire.getMotAleatoire();
-            Partie partie = new Partie(motSecret);
+        // --- NOUVEAU : Menu de sélection du mode de jeu ---
+        System.out.println("\nChoisissez votre mode:\n");
+        System.out.println("1 - Mot fixe (AVION)");
+        System.out.println("2 - Mot aléatoire");
+        System.out.print("\nVotre choix (1 ou 2) : ");
+        String choixMode = clavier.nextLine().trim();
 
-            System.out.println("\nUn mot secret de 5 lettres a été généré.");
+        try {
+            Mot motSecret = null;
+
+            if (choixMode.equals("1")) {
+                motSecret = new Mot("AVION");
+                System.out.println("\n(Mode Test) Le mot secret est fixé à AVION.");
+            } else {
+                RepertoireMots dictionnaire = new RepertoireMots("src/data/mots.json");
+                motSecret = dictionnaire.getMotAleatoire();
+                System.out.println("\n(Mode Normal) Un mot secret de 5 lettres a été généré.");
+            }
+
+            Partie partie = new Partie(motSecret);
             System.out.println("Vous avez 6 essais pour le deviner.\n");
 
             while (!partie.isPartieTerminee()) {
-                System.out.print("Essai n°" + (partie.getNbEssais() + 1) + "Tapez votre proposition : ");
+
+                System.out.print("Essai n°" + (partie.getNbEssais() + 1) + " > Tapez votre proposition : ");
                 String saisie = clavier.nextLine().toUpperCase().trim();
 
                 try {
                     Mot tentative = new Mot(saisie);
                     Resultat resultat = partie.analyserTentative(tentative);
-                    System.out.println(resultat.toString());
+                    System.out.println();
+                    for (Resultat r : partie.getHistorique()) {
+                        System.out.println(r.toString());
+                    }
+                    System.out.println();
+
                 } catch (LongueurMotException e) {
                     System.out.println("  Erreur : le mot doit contenir exactement 5 lettres.\n");
                 } catch (FormatMotException e) {
-                    System.out.println("  Erreur : le mot doit contenir uniquement des lettres.\n");
+                    System.out.println("  Erreur : le mot doit contenir uniquement des lettres, et il ne doit pas y avoir deux fois la meme lettrre dans le mot.\n");
                 }
             }
 
@@ -52,7 +71,7 @@ public class JeuConsole {
             }
 
         } catch (Exception e) {
-            System.out.println("Erreur lors du chargement : " + e.getMessage());
+            System.out.println("Erreur lors du chargement ou de la création du mot : " + e.getMessage());
         } finally {
             clavier.close();
         }

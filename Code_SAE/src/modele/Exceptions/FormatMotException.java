@@ -16,6 +16,7 @@ public class FormatMotException extends Exception {
         return this.mot;
     }
 
+    //méthodes de base
     public String toString()
     {
         return "Le mot : " + this.mot + " n'es pas conforme, le mot doit étre entierement constitué de" +

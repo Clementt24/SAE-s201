@@ -28,17 +28,16 @@ public class Resultat {
         return true;
     }
 
+    //méthodes de base
     @Override
     public String toString() {
         StringBuilder affichage = new StringBuilder();
         String texteMot = this.tentative.getMot();
 
-        // Affichage des lettres
         for (int i = 0; i < texteMot.length(); i++) {
             affichage.append("[ ").append(texteMot.charAt(i)).append(" ]");
         }
 
-        // La flèche de séparation
         affichage.append(" -> ");
 
         for (int i = 0; i < this.listeStatuts.size(); i++) {

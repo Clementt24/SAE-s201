@@ -8,6 +8,7 @@ public class StatutAbsent extends Statut {
         super("ABSENT", false);
     }
 
+    //méthodes de base
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
