@@ -1124,7 +1124,7 @@ SAE_FindMyWord_v_1.2.md 2026-03-29
   [ L ][ I ][ V ][ R ][ E ] → OK    OK    ABSENT  ABSENT  OK
 
   Vous avez utilisé tous vos essais.
-  Partie perdue.
+  Partie perdue. 
   Mot secret : ligne
 
 
