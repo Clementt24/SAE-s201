@@ -1125,7 +1125,7 @@ SAE_FindMyWord_v_1.2.md 2026-03-29
 
   Vous avez utilisé tous vos essais.
   Partie perdue.
-  Mot secret : ligne
+  Mot secret : ligne 
 
 
 
