@@ -1114,7 +1114,7 @@ SAE_FindMyWord_v_1.2.md 2026-03-29
   [ L ][ U ][ I ][ R ][ E ] → OK    ABSENT  PRESENT ABSENT  OK
 
   --
-  Tentative 6 : livre
+  Tentative 6 : livre 
 
   [ T ][ A ][ B ][ L ][ E ] → ABSENT  ABSENT  ABSENT  PRESENT OK
   [ L ][ A ][ M ][ P ][ E ] → OK    ABSENT  ABSENT  ABSENT  OK
